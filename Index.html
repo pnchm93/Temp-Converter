@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature Converter</title>
+    <style>
+        body{
+            align-content: center;
+            background-color: antiquewhite;
+            margin-top: 100px;
+            margin-left: 500px;
+            margin-right: 200px;
+            width: 200px;
+        }
+        h2{
+            padding-top: 50px;
+            padding-bottom: 30px;
+            text-align: center;
+        }
+        #temp{
+            background-color: rgb(136, 127, 255);
+            text-align: center;
+            width: 450px;
+            height: 300px;
+        }
+        #color{
+            height: 30px;
+            color:white;
+           font-size: 20px;
+        }
+        #input_div{
+            display: inline-block;
+        }
+        input{
+            margin: 10px;
+            text-align: center;
+            width: 150px;
+            height: 30px;
+            
+            font-size: large;
+            
+        }
+    </style>
+</head>
+<body >
+    <div id="temp">
+        <h2>Temperature Converter</h2>
+        <div id="input_div">
+            <label id="color"> Celsius: </label><br>
+            <input type="number"  id="cel" placeholder="default value 0"/>
+        </div>
+        
+        <div id="input_div">
+            <label id="color">Fahrenheit:</label><br>
+            <input type="number" id="frn" placeholder="default value 32"/>
+        </div>
+        
+    </div>
+   <script>
+    var cel=document.getElementById("cel");
+    var frn=document.getElementById("frn");
+    cel.addEventListener('input',function(){
+        var val=this.value;
+        var fn=((val)*(9/5))+ 32;
+        if(Number.isInteger(fn)==false){
+            fn=fn.toFixed(2);
+        }
+        frn.value=fn;
+    });
+    frn.addEventListener('input',function(){
+        var val=this.value;
+        var Celcius=((val-32)*(5/9));
+        if(Number.isInteger(Celcius)==false){
+            Celcius=Celcius.toFixed(2);
+        }
+        cel.value=Celcius;
+        
+    })
+    cel.addEventListener('focus',function(){
+        cel.style.background="rgb(148, 236, 148)"
+    });
+    cel.addEventListener('blur',function(){
+        cel.style.background="white"
+    });
+    frn.addEventListener('focus',function(){
+        frn.style.background="rgb(148, 236, 148)"
+    });
+    frn.addEventListener('blur',function(){
+        frn.style.background="white"
+    });
+    
+   </script>
+</body>
+</html>   
